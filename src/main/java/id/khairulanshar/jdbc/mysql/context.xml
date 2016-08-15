@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="">
+    <!--
+    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/somedb"
+    OR
+    factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+    driverClassName="com.mysql.jdbc.ReplicationDriver"
+    url="jdbc:mysql:replication://master_ip:3306,slave_ip1:3306,slave_ip2:3306/somedb"
+    -->     
+
+    <Resource name="jdbc/somedb_DS"
+                              auth="Container"
+                              type="javax.sql.DataSource"
+                              testWhileIdle="true"
+                              testOnBorrow="true"
+                              testOnReturn="false"
+                              validationQuery="SELECT 1"
+                              validationInterval="30000"
+                              timeBetweenEvictionRunsMillis="30000"
+                              maxActive="100"
+                              minIdle="3"
+                              maxWait="10000"
+                              initialSize="10"
+                              removeAbandonedTimeout="60"
+                              removeAbandoned="true"
+                              logAbandoned="true"
+                              minEvictableIdleTimeMillis="30000"
+                              jmxEnabled="true"
+                              jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer"
+                              username="root"
+                              password="*************"
+
+                              factory="org.apache.commons.dbcp.BasicDataSourceFactory"
+                              driverClassName="com.mysql.jdbc.ReplicationDriver"
+                              url="jdbc:mysql:replication://master_ip:3306,slave_ip1:3306,slave_ip2:3306/somedb"
+    />
+</Context>
